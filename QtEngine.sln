@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.
 		{B12702AD-ABFB-343A-A199-8E24837244A3} = {B12702AD-ABFB-343A-A199-8E24837244A3}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EngineTester", "EngineTester\EngineTester.vcxproj", "{08B98F13-0685-461A-8984-65C504472234}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -24,6 +26,10 @@ Global
 		{C7062D7E-B481-4984-8C37-B3359FCCB90F}.Debug|x64.Build.0 = Debug|x64
 		{C7062D7E-B481-4984-8C37-B3359FCCB90F}.Release|x64.ActiveCfg = Release|x64
 		{C7062D7E-B481-4984-8C37-B3359FCCB90F}.Release|x64.Build.0 = Release|x64
+		{08B98F13-0685-461A-8984-65C504472234}.Debug|x64.ActiveCfg = Debug|x64
+		{08B98F13-0685-461A-8984-65C504472234}.Debug|x64.Build.0 = Debug|x64
+		{08B98F13-0685-461A-8984-65C504472234}.Release|x64.ActiveCfg = Release|x64
+		{08B98F13-0685-461A-8984-65C504472234}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
