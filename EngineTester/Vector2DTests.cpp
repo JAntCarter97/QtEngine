@@ -1,5 +1,5 @@
-#include <gtest\gtest.h>
-#include <Vector2D.h>
+#include <gtest/gtest.h>
+#include <Math/Vector2D.h>
 using Math::Vector2D;
 
 TEST(Vector2D, Constructor)
@@ -25,6 +25,9 @@ TEST(Vector2D, ScalarMultiplication)
 {
 	Vector2D vec(-7, 3);
 	Vector2D result1 = 2 * vec;
+	Vector2D result2 = vec * 2;
 	EXPECT_FLOAT_EQ(-14, result1.x);
 	EXPECT_FLOAT_EQ(6, result1.y);
+	EXPECT_FLOAT_EQ(result1.x, result2.x);
+	EXPECT_FLOAT_EQ(result1.y, result2.y);
 }
