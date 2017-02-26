@@ -8,12 +8,15 @@ class MyGlWindow : public QOpenGLWidget
 
 	GLuint vertexBufferID;
 	QTimer myTimer;
+
 protected:
 	void initializeGL();
 	void paintGL();
 
 private slots:
 	void myUpdate();
+	void updateVelocity();
+
 public:
 	bool initialize();
 	bool shutdown();
