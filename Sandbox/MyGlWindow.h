@@ -14,4 +14,7 @@ protected:
 
 private slots:
 	void myUpdate();
+public:
+	bool initialize();
+	bool shutdown();
 };

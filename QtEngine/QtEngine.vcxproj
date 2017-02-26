@@ -12,9 +12,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Math\Vector2D.h" />
+    <ClInclude Include="Timing\Clock.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Math\Vector2D.cpp" />
+    <ClCompile Include="Timing\Clock.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
