@@ -1,6 +1,8 @@
 #pragma once
 #include "Vector2D.h"
 #include <cmath>
+//float sin(float);
+//float cos(float);
 
 namespace Math
 {
@@ -18,7 +20,9 @@ namespace Math
 								   r1c0(r1c0), r1c1(r1c1) {}
 		inline static Matrix2D rotate(float angleInRads)
 		{ 
-			return Matrix2D(cos(angleInRads), -sin(angleInRads), sin(angleInRads), cos(angleInRads)); 
+			float cosResult = cos(angleInRads);
+			float sinResult = sin(angleInRads);
+			return Matrix2D(cosResult, -sinResult, sinResult, cosResult); 
 		}
 	};
 
