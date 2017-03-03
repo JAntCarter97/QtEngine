@@ -1,8 +1,8 @@
 #pragma once
 #include "Vector2D.h"
-#include <cmath>
-//float sin(float);
-//float cos(float);
+//#include <cmath>
+float sin(float) noexcept;
+float cos(float) noexcept;
 
 namespace Math
 {

@@ -1,7 +1,6 @@
 #include <GL/glew.h>
 #include "MyGlWindow.h"
 #include <cassert>
-//#include <qevent.h>
 #include <QtGui/QKeyEvent>
 #include <Math/Vector2D.h>
 #include <Timing/Clock.h>
