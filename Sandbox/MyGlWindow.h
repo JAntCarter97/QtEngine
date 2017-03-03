@@ -15,6 +15,7 @@ protected:
 
 private slots:
 	void myUpdate();
+	void rotateShip();
 	void updateVelocity();
 
 public:

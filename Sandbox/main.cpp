@@ -4,7 +4,6 @@
 
 int main(int argc, char* argv[])
 {
-
 	QApplication application(argc, argv);
 	MyGlWindow myGlWindow;
 	if (!myGlWindow.initialize())
