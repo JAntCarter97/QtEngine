@@ -1,8 +1,8 @@
+#include "HelperFunctions.h"
 #include <Math/Matrix2D.h>
 #include <Math/Vector2D.h>
 #include <gtest/gtest.h>
-#include "HelperFunctions.h"
-#include "Math/Constants.h"
+#include <Math/Constants.h>
 
 using Math::Matrix2D;
 using Math::Vector2D;

@@ -1,7 +1,7 @@
+#include "HelperFunctions.h"
 #include <Math/Matrix3D.h>
 #include <Math/Vector3D.h>
 #include <gtest/gtest.h>
-#include <HelperFunctions.h>
 #include <Math/Constants.h>
 
 using Math::Matrix3D;
@@ -9,15 +9,23 @@ using Math::Vector3D;
 
 TEST(Matrix3D, Construction)
 {
+	// Test Matrix3D default constructor
 	Matrix3D identity;
 	EXPECT_FLOAT_EQ(identity.r0c0, 1.0f);
 	EXPECT_FLOAT_EQ(identity.r0c1, 0.0f);
+	EXPECT_FLOAT_EQ(identity.r0c2, 0.0f);
 	EXPECT_FLOAT_EQ(identity.r1c0, 0.0f);
 	EXPECT_FLOAT_EQ(identity.r1c1, 1.0f);
+	EXPECT_FLOAT_EQ(identity.r1c2, 0.0f);
+	EXPECT_FLOAT_EQ(identity.r2c0, 0.0f);
+	EXPECT_FLOAT_EQ(identity.r2c1, 0.0f);
+	EXPECT_FLOAT_EQ(identity.r2c2, 1.0f);
 }
 
 TEST(Matrix3D, Rotation)
 {
+	// Create a default Matrix3D
+	// Test its rotated values at angle = 0
 	Matrix3D op;
 	op = Matrix3D::rotate(0);
 	EXPECT_FLOAT_EQ(op.r0c0, 1);
@@ -30,6 +38,7 @@ TEST(Matrix3D, Rotation)
 	EXPECT_FLOAT_EQ(op.r2c1, 0);
 	EXPECT_FLOAT_EQ(op.r2c2, 1);
 
+	// Test roated values at angle = PI
 	op = Matrix3D::rotate(Math::PI);
 	EXPECT_FLOAT_EQ(op.r0c0, -1);
 	EXPECT_TRUE(closeEnough(op.r0c1, 0));
@@ -41,6 +50,7 @@ TEST(Matrix3D, Rotation)
 	EXPECT_FLOAT_EQ(op.r2c1, 0);
 	EXPECT_FLOAT_EQ(op.r2c2, 1);
 
+	// Test roated values at angle = PI / 2
 	op = Matrix3D::rotate(Math::PI / 2);
 	EXPECT_TRUE(closeEnough(op.r0c0, 0));
 	EXPECT_FLOAT_EQ(op.r0c1, -1);
@@ -52,6 +62,7 @@ TEST(Matrix3D, Rotation)
 	EXPECT_FLOAT_EQ(op.r2c1, 0);
 	EXPECT_FLOAT_EQ(op.r2c2, 1);
 
+	// Test roated values at angle = PI / 4
 	op = Matrix3D::rotate(Math::PI / 4);
 	const float sqrt2Over2 = 0.707106769;
 	EXPECT_FLOAT_EQ(op.r0c0, sqrt2Over2);
@@ -64,6 +75,7 @@ TEST(Matrix3D, Rotation)
 	EXPECT_FLOAT_EQ(op.r2c1, 0);
 	EXPECT_FLOAT_EQ(op.r2c2, 1);
 
+	// Test roated values at angle = -PI / 4
 	op = Matrix3D::rotate(-Math::PI / 4);
 	EXPECT_FLOAT_EQ(op.r0c0, sqrt2Over2);
 	EXPECT_FLOAT_EQ(op.r0c1, sqrt2Over2);
@@ -75,6 +87,7 @@ TEST(Matrix3D, Rotation)
 	EXPECT_FLOAT_EQ(op.r2c1, 0);
 	EXPECT_FLOAT_EQ(op.r2c2, 1);
 
+	// Test roated values at angle = PI / 3
 	op = Matrix3D::rotate(Math::PI / 3);
 	const float sqrt3Over2 = 0.866025388;
 	EXPECT_FLOAT_EQ(op.r0c0, 0.5);
@@ -87,6 +100,7 @@ TEST(Matrix3D, Rotation)
 	EXPECT_FLOAT_EQ(op.r2c1, 0);
 	EXPECT_FLOAT_EQ(op.r2c2, 1);
 
+	// Test roated values at angle = -PI / 3
 	op = Matrix3D::rotate(-Math::PI / 3);
 	EXPECT_FLOAT_EQ(op.r0c0, 0.5);
 	EXPECT_FLOAT_EQ(op.r0c1, sqrt3Over2);
@@ -102,6 +116,7 @@ TEST(Matrix3D, Rotation)
 
 TEST(Matrix3D, MatrixVectorMultiply)
 {
+	// Matrix3D times a Vector3D test
 	Matrix3D op(2, -3, 1, 4, -5, 2, 0, 0, 1);
 	Vector3D v(3, 9, 1);
 	Vector3D vprime = op * v;

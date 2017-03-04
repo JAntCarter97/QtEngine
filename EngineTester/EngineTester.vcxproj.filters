@@ -24,6 +24,9 @@
       <Extensions>moc;h;cpp</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Source Files\MathTests">
+      <UniqueIdentifier>{8847f12d-ef82-4448-9d1c-00a249137933}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TesterMain.cpp">
@@ -32,20 +35,20 @@
     <ClCompile Include="..\Middleware\gtest\src\gtest-all.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector2DTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ClockTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Matrix2DTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector3DTests.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\MathTests</Filter>
     </ClCompile>
     <ClCompile Include="Matrix3DTests.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\MathTests</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2DTests.cpp">
+      <Filter>Source Files\MathTests</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3DTests.cpp">
+      <Filter>Source Files\MathTests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

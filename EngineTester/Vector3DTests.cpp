@@ -5,6 +5,7 @@ using Math::Vector3D;
 
 TEST(Vector3D, Constructor)
 {
+	// Test Vector3D constructor values
 	Vector3D first(1, 2, 3);
 	EXPECT_FLOAT_EQ(1, first.x);
 	EXPECT_FLOAT_EQ(2, first.y);
@@ -13,6 +14,7 @@ TEST(Vector3D, Constructor)
 
 TEST(Vector3D, VectorAddition)
 {
+	// Test the sum of 2 Vector3D vectors and their reflexivity
 	Vector3D first(1, 2, 3);
 	Vector3D second(3, 4, 5);
 	Vector3D result = first + second;
@@ -27,6 +29,7 @@ TEST(Vector3D, VectorAddition)
 
 TEST(Vector3D, ScalarMultiplication)
 {
+	// Test the Scalar multiplication of a Vector3D vector
 	Vector3D vec(-7, 3, 2);
 	Vector3D result1 = 2 * vec;
 	Vector3D result2 = vec * 2;
@@ -40,6 +43,7 @@ TEST(Vector3D, ScalarMultiplication)
 
 TEST(Vector3D, AssignmentPlusEquals)
 {
+	// Test the overloaded += operator of 2 Vector3D vectors
 	Vector3D source(5, -1234.5678, 24);
 	Vector3D another(1, 1, 1);
 	another += source;
@@ -50,6 +54,7 @@ TEST(Vector3D, AssignmentPlusEquals)
 
 TEST(Vector3D, AssignmentMinusEquals)
 {
+	// Test the overloaded -= operator of 2 Vector3D vectors
 	Vector3D source(5, -1234.5678, 24);
 	Vector3D another(1, 1, 1);
 	another -= source;
