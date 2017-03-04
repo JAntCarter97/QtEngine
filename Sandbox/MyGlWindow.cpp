@@ -3,23 +3,27 @@
 #include <cassert>
 #include <QtGui/QKeyEvent>
 #include <Math/Vector2D.h>
+#include <Math/Vector3D.h>
 #include <Math/Matrix2D.h>
+#include <Math/Matrix3D.h>
 #include <Timing/Clock.h>
 using Math::Vector2D;
+using Math::Vector3D;
 using Math::Matrix2D;
+using Math::Matrix3D;
 using Timing::Clock;
 
 namespace
 {
-	Vector2D verts[] =
+	Vector3D verts[] =
 	{
-		Vector2D(0.0f,  0.14142135623f),
-		Vector2D(-0.1f, -0.1f),
-		Vector2D(0.1f, -0.1f)
+		Vector3D(0.0f,  0.14142135623f, 1.0f),
+		Vector3D(-0.1f, -0.1f, 1.0f),
+		Vector3D(0.1f, -0.1f, 1.0f)
 	};
 	const unsigned int NUM_VERTS = sizeof(verts) / sizeof(*verts);
-	Vector2D shipPosition;
-	Vector2D shipVelocity;
+	Vector3D shipPosition;
+	Vector3D shipVelocity;
 	float shipOrientation = 0.0f;
 	Clock clock;
 }
@@ -47,12 +51,19 @@ void MyGlWindow::paintGL()
 	glViewport(viewportLocation.x, viewportLocation.y, minSize, minSize);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-	Vector2D tranformedVerts[NUM_VERTS];
-	Matrix2D op = Matrix2D::rotate(shipOrientation);
+	// Make array for transformed vertices
+	Vector3D tranformedVerts[NUM_VERTS];
+	// Make Translated and rotated matrices and store them
+	Matrix3D translatedMatrix = Matrix3D::translate(shipPosition.x, shipPosition.y);
+	Matrix3D rotatedMatrix = Matrix3D::rotateZ(shipOrientation);
+	// Create the new Translated/Rotated matrix
+	Matrix3D op = translatedMatrix * rotatedMatrix;
+	// Use the translated/rotated matrix on all our vertices 
+	// Translation is turned on, because our verts all have z values = 1.0f
 	for (unsigned int i = 0; i < NUM_VERTS; i++)
-		tranformedVerts[i] = shipPosition + (op * verts[i]);
+		tranformedVerts[i] = op * verts[i];
 	
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(tranformedVerts), tranformedVerts);
 
@@ -94,7 +105,7 @@ void MyGlWindow::updateVelocity()
 {
 	const float ACCELERATION = 0.3f * clock.timeElapsedLastFrame();
 
-	Vector2D directionToAccelerate(-sin(shipOrientation), cos(shipOrientation));
+	Vector3D directionToAccelerate(-sin(shipOrientation), cos(shipOrientation), 0.0f);
 	if (GetAsyncKeyState(VK_UP))
 		shipVelocity += directionToAccelerate * ACCELERATION;
 }
