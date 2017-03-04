@@ -35,6 +35,15 @@
     <ClInclude Include="Math\Matrix2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Math\Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Matrix3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Timing\Clock.cpp">
