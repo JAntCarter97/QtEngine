@@ -6,6 +6,23 @@
 using std::ifstream;
 using std::string;
 
+namespace
+{
+	char* categoryArr[] =
+	{
+		"Category1",
+		"Category2",
+		"Category3"
+	};
+
+	const char* const PROFILE_FILE_NAME = "profiles.csv";
+	const unsigned int NUM_CATEGORIES = sizeof(categoryArr) / sizeof(*categoryArr);
+	const int NUM_FRAMES = 5;
+	Profiler profiler;
+
+}
+
+
 string getNextToken(ifstream &theFile)
 {
 	char c;
@@ -22,20 +39,8 @@ string getNextToken(ifstream &theFile)
 	return ret;
 }
 
-TEST(Profiler, SampleProfiles)
+void writeSamples()
 {
-	char* categoryArr[] = 
-	{
-		"Category1",
-		"Category2",
-		"Category3"
-	};
-	const unsigned int NUM_CATEGORIES = sizeof(categoryArr) / sizeof(*categoryArr);
-
-	Profiler profiler;
-	const char* profilerFileName = "profiles.csv";
-	profiler.initialize(profilerFileName);
-	const int NUM_FRAMES = 5;
 	int sampleNumber = 0;
 	for (int frame = 0; frame < NUM_FRAMES; frame++)
 	{
@@ -45,9 +50,11 @@ TEST(Profiler, SampleProfiles)
 			profiler.addEntry(categoryArr[cat], sampleNumber++);
 		}
 	}
-	profiler.shutdown();
+}
 
-	ifstream input(profilerFileName);
+void checkSamples()
+{
+	ifstream input(PROFILE_FILE_NAME);
 	string token;
 	EXPECT_EQ(getNextToken(input), "Category1");
 	EXPECT_EQ(getNextToken(input), "Category2");
@@ -57,4 +64,31 @@ TEST(Profiler, SampleProfiles)
 		string buf = getNextToken(input);
 		EXPECT_EQ(atoi(buf.c_str()), i);
 	}
+}
+
+TEST(Profiler, SampleProfiles)
+{
+	profiler.initialize(PROFILE_FILE_NAME);
+	writeSamples();
+	checkSamples();
+	profiler.shutdown();
+}
+
+//TODO: Write entries to file.
+TEST(Profiler, ExcludeIncompleteFrames)
+{
+	profiler.initialize(PROFILE_FILE_NAME);
+	writeSamples();
+	profiler.newFrame();
+	profiler.addEntry(categoryArr[0], 15);
+	profiler.shutdown();
+	checkSamples();
+
+	profiler.initialize(PROFILE_FILE_NAME);
+	writeSamples();
+	profiler.newFrame();
+	profiler.addEntry(categoryArr[0], 15);
+	profiler.addEntry(categoryArr[1], 16);
+	profiler.shutdown();
+	checkSamples();
 }

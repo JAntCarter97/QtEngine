@@ -1,4 +1,3 @@
-//***********Date 05-24-2017*************
 #include <qapplication.h>
 #include <qwidget.h>
 #include "MyGlWindow.h"
