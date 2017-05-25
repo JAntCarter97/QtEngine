@@ -44,9 +44,15 @@
     <ClInclude Include="Math\Vector3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DebuggingTools\Profiling\Profiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Timing\Clock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DebuggingTools\Profiling\Profiler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

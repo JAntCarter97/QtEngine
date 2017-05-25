@@ -16,9 +16,11 @@
     <ClInclude Include="Math\Matrix3D.h" />
     <ClInclude Include="Math\Vector2D.h" />
     <ClInclude Include="Math\Vector3D.h" />
+    <ClInclude Include="DebuggingTools\Profiling\Profiler.h" />
     <ClInclude Include="Timing\Clock.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DebuggingTools\Profiling\Profiler.cpp" />
     <ClCompile Include="Timing\Clock.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

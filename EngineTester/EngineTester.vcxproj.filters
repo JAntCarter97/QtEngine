@@ -35,20 +35,23 @@
     <ClCompile Include="..\Middleware\gtest\src\gtest-all.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ClockTests.cpp">
+    <ClCompile Include="MathTests\Matrix2DTests.cpp">
+      <Filter>Source Files\MathTests</Filter>
+    </ClCompile>
+    <ClCompile Include="MathTests\Matrix3DTests.cpp">
+      <Filter>Source Files\MathTests</Filter>
+    </ClCompile>
+    <ClCompile Include="MathTests\Vector2DTests.cpp">
+      <Filter>Source Files\MathTests</Filter>
+    </ClCompile>
+    <ClCompile Include="MathTests\Vector3DTests.cpp">
+      <Filter>Source Files\MathTests</Filter>
+    </ClCompile>
+    <ClCompile Include="ClockTests\ClockTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix2DTests.cpp">
-      <Filter>Source Files\MathTests</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix3DTests.cpp">
-      <Filter>Source Files\MathTests</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector2DTests.cpp">
-      <Filter>Source Files\MathTests</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector3DTests.cpp">
-      <Filter>Source Files\MathTests</Filter>
+    <ClCompile Include="ProfilerTests\ProfilerTest.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

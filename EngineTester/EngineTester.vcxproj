@@ -69,12 +69,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Middleware\gtest\src\gtest-all.cc" />
-    <ClCompile Include="ClockTests.cpp" />
-    <ClCompile Include="Matrix2DTests.cpp" />
-    <ClCompile Include="Matrix3DTests.cpp" />
+    <ClCompile Include="ClockTests\ClockTests.cpp" />
+    <ClCompile Include="MathTests\Matrix2DTests.cpp" />
+    <ClCompile Include="MathTests\Matrix3DTests.cpp" />
+    <ClCompile Include="ProfilerTests\ProfilerTest.cpp" />
     <ClCompile Include="TesterMain.cpp" />
-    <ClCompile Include="Vector2DTests.cpp" />
-    <ClCompile Include="Vector3DTests.cpp" />
+    <ClCompile Include="MathTests\Vector2DTests.cpp" />
+    <ClCompile Include="MathTests\Vector3DTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HelperFunctions.h" />
